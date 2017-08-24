@@ -27,7 +27,7 @@ class Client {
         );
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, PayPro::$apiUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_to_post);
         curl_setopt($ch, CURLOPT_CAINFO, realpath(PayPro::$caBundleFile));
@@ -36,15 +36,15 @@ class Client {
 
         if ($body === false) {
             $errno = curl_errno($ch);
-            $message = curl_message($ch);
+            $message = curl_error($ch);
 
             curl_close($ch);
 
-            $msg = "Could not connect to the PayPro API ($url) [errno: $errno]: $message";
+            $msg = "Could not connect to the PayPro API - [errno: $errno]: $message";
             throw new Error\Connection($msg);
         }
 
-        $decodedResponse = json_decode($body, true);
+        $decodedResponse = json_decode($body, true); 
 
         if (is_null($decodedResponse)) {
             curl_close($ch);
@@ -62,5 +62,11 @@ class Client {
 
     function setParam($param, $value) {
         $this->params[$param] = $value;
+    }
+
+    function setParams($params) {
+        foreach($params as $param => $value) {
+            $this->params[$param] = $value;
+        }
     }
 }

@@ -12,7 +12,7 @@ class PayPro {
     public static $apiUrl = 'https://www.paypro.nl/post_api';
 
     // @var string File location of the certificate bundle
-    public static $caBundleFile = '../data/ca-bundle.crt'
+    public static $caBundleFile = '../data/ca-bundle.crt';
 
-    const VERSION = '1.0.0';
+    const VERSION = '0.0.1-alpha';
 }

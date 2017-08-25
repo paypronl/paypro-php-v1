@@ -13,7 +13,7 @@ This library provides a client to connect with the PayPro API.
  - PHP extension cUrl
  - PHP extension json
 
-If you use Composer these dependencies are automatically handled for you.
+If you use Composer these dependencies are automatically handled for you. For manual installation make sure these extensions are activated.
 
 ## Documentation
 
@@ -27,4 +27,4 @@ We provide an installation guide on https://paypro.nl/developers/api-clients/php
 If you want to contribute to this project you can fork the repository. Create a new branch, add your feature and create a pull request. We will look at your request and determine if we want to add it.
 
 ## License
-[GPLv2](https://github.com/paypronl/paypro-php-v1/blob/master/LICENSE)
+[MIT](https://github.com/paypronl/paypro-php-v1/blob/master/LICENSE)

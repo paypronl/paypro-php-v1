@@ -38,7 +38,7 @@ class Client {
         curl_setopt($ch, CURLOPT_URL, PayPro::$apiUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_to_post);
-        curl_setopt($ch, CURLOPT_CAINFO, realpath(PayPro::$caBundleFile));
+        curl_setopt($ch, CURLOPT_CAINFO, $this->caBundleFile());
 
         $body = curl_exec($ch);
 
@@ -52,10 +52,11 @@ class Client {
             throw new Error\Connection($msg);
         }
 
+        curl_close($ch);
+
         $decodedResponse = json_decode($body, true); 
 
         if (is_null($decodedResponse)) {
-            curl_close($ch);
             $msg = "The API request returned an error or is invalid: $body";
             throw new Error\InvalidResponse($msg);
         }
@@ -85,5 +86,12 @@ class Client {
         foreach($params as $param => $value) {
             $this->params[$param] = $value;
         }
+    }
+
+    /**
+     * Returns the full path of the ca bundle file.
+     */
+    private function caBundleFile() {
+        return realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . PayPro::$caBundleFile);
     }
 }

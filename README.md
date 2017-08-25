@@ -32,7 +32,7 @@ $payproClient->execute();
 
 ## Documentation
 
-For for guides and code examples you can go to https://paypro.nl/developers/docs.
+For guides and code examples you can go to https://paypro.nl/developers/docs.
 
 ## Contributing
 If you want to contribute to this project you can fork the repository. Create a new branch, add your feature and create a pull request. We will look at your request and determine if we want to add it.

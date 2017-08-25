@@ -19,6 +19,14 @@ class Client {
         $this->apikey = $apikey;
     }
 
+    /**
+     * Executes the command. Connects with the PayPro API and returns the response.
+     *
+     * On correct API calls it will return an array with all the fields.
+     *
+     * @throws Error\Connection if the connection can not be established.
+     * @throws Error\InvalidResponse if there is an error with the response.
+     */
     function execute() {
         $data_to_post = array(
             'apikey'  => $this->apikey,
@@ -48,7 +56,7 @@ class Client {
 
         if (is_null($decodedResponse)) {
             curl_close($ch);
-            $msg = "The response is not valid: $body";
+            $msg = "The API request returned an error or is invalid: $body";
             throw new Error\InvalidResponse($msg);
         }
         
@@ -56,14 +64,23 @@ class Client {
         return $decodedResponse;
     }
 
+    /**
+     * Sets the command to be executed.
+     */
     function setCommand($command) {
         $this->command = $command;
     }
 
+    /**
+     * Sets a single parameter for the API call.
+     */
     function setParam($param, $value) {
         $this->params[$param] = $value;
     }
 
+    /**
+     * Sets an associative array as param where the keys are the name of the param.
+     */
     function setParams($params) {
         foreach($params as $param => $value) {
             $this->params[$param] = $value;

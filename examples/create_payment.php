@@ -3,13 +3,16 @@
 // Include the PayPro API files
 require_once('../init.php');
 
-// Create a new PayPro client object with your API key. Login to PayPro and go to https://paypro.nl/api/keys
+// Create a new PayPro client object with your API key.
+// Login to PayPro and go to https://paypro.nl/api/keys to view and generate your API keys.
 $payproClient = new \PayPro\Client('YOUR_API_KEY');
 
 // Set the command you want to execute.
+// Look at https://api.paypro.nl/reference for a full list of commands.
 $payproClient->setCommand('create_payment');
 
-// Define the parameters that we want to use.
+// Define the parameters that you want to use.
+// Look at https://api.paypro.nl/reference to see what parameters can be used.
 $params = array(
     'amount' => 500,
     'consumer_email' => 'test@paypro.nl',

@@ -1,6 +1,7 @@
 ![PayPro](https://paypro.nl/images/logo-ie.png)
 # PayPro PHP API v1 Client
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Latest Stable Version](https://img.shields.io/packagist/v/paypro/paypro-php-v1.svg)](https://packagist.org/packages/paypro/paypro-php-v1)
 
 This library provides a client to connect with the PayPro API.
 

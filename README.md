@@ -23,7 +23,7 @@ We provide an installation guide on https://paypro.nl/developers/api-clients/php
 
 Example of creating a payment:
 
-```
+```php
 $payproClient = new \PayPro\Client('YOUR_API_KEY');
 $payproClient->setCommand('create_payment');
 $payproClient->setParams(array('amount' => 500, 'consumer_email' => 'test@paypro.nl', 'pay_method' => 'ideal/INGBNL2A'));

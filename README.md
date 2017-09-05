@@ -18,7 +18,45 @@ If you use Composer these dependencies are automatically handled for you. For ma
 
 ## Installation
 
-We provide an installation guide on https://paypro.nl/developers/api-clients/php.
+### Composer
+
+To install using composer, you will have to install Composer first.
+
+```sh
+curl -s https://getcomposer.org/install | php
+```
+
+Create a **composer.json** file in your project root.
+
+```json
+{
+  "require": {
+    "paypro/paypro-php-v1": "~1.0"
+  }
+}
+```
+
+Tell Composer to install the required dependencies.
+
+```sh
+php composer.phar install
+```
+
+If you want to use autoloading provided by Composer, add the following line to your application file.
+
+```php
+require 'vendor/autoload.php';
+```
+
+You are now ready to use the **PayPro API client**.
+
+### Manually
+
+Just download the [latest release](https://github.com/paypronl/paypro-php-v1/releases/latest) and require the files directly in your project. You just have to require the `init.php` file in your application file.
+
+```php
+require 'init.php';
+```
 
 ## Getting started
 

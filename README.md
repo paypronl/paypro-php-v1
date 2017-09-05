@@ -52,7 +52,7 @@ You are now ready to use the **PayPro API client**.
 
 ### Manually
 
-Just download the [latest release](https://github.com/paypronl/paypro-php-v1/releases/latest) and require the files directly in your project. You just have to require the `init.php` in your application file.
+Just download the [latest release](https://github.com/paypronl/paypro-php-v1/releases/latest) and require the files directly in your project. You have to require the `init.php` in your application file.
 
 ```php
 require 'init.php';
